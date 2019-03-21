@@ -1,0 +1,11 @@
+{% extends "music/base.html"%}
+{% load static %}
+{% block 标题 %}网站后台{% endblock %}
+{% block 主页高亮 %}navbar-brand{% endblock %}
+{% block 按钮 %}更新数据库{% endblock 按钮 %}
+{% block 按钮url %}{% url 'music:更新'%}{% endblock 按钮url %}
+{% block 主题 %}
+
+<h1>网站后台</h1>
+
+{% endblock 主题 %}

@@ -1,0 +1,155 @@
+{% extends "music/base.html"%}
+{% load static %}
+{% block 标题 %}主页{% endblock %}
+{% block css %}{% static 'music/css/home.css' %}{% endblock %}
+{% block 主页高亮 %}navbar-brand{% endblock %}
+
+{% block 主题 %}
+    <div class="bodys">
+        <div class="card-deck">
+            <div class="card">
+                <a href="{% url 'music:华语男'%}">
+                <img src="{% static 'music/images/华语男.jpg' %}" class="card-img-top" alt="..." height="300px">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'music:华语男'%}">华语男歌手</a> </h5>
+
+                </div>
+            </div>
+        <div class="card">
+            <a href="{% url 'music:华语女'%}">
+            <img src="{% static 'music/images/华语女.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:华语女'%}">华语女歌手</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:华语组合'%}">
+            <img src="{% static 'music/images/华语乐队.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:华语组合'%}">华语乐队/组合</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:欧美男'%}">
+            <img src="{% static 'music/images/欧美男.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:欧美男'%}">欧美男歌手</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:欧美女'%}">
+            <img src="{% static 'music/images/欧美女.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:欧美女'%}">欧美女歌手</a></h5>
+
+            </div>
+        </div>
+    </div>
+     <br />
+    <div class="card-deck">
+            <div class="card">
+                <a href="{% url 'music:欧美组合'%}">
+                <img src="{% static 'music/images/欧美乐队.jpg' %}" class="card-img-top" alt="..." height="300px">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'music:欧美组合'%}">欧美乐队/组合</a> </h5>
+
+                </div>
+            </div>
+        <div class="card">
+            <a href="{% url 'music:日本男'%}">
+            <img src="{% static 'music/images/日本男.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:日本男'%}">日本男歌手</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:日本女'%}">
+            <img src="{% static 'music/images/日本女.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:日本女'%}">日本女歌手</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:日本组合'%}">
+            <img src="{% static 'music/images/日本乐队.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:日本组合'%}">日本乐队/组合</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:韩国男'%}">
+            <img src="{% static 'music/images/韩国男.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:韩国男'%}">韩国男歌手</a></h5>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+            <div class="card">
+                <a href="{% url 'music:韩国女'%}">
+                <img src="{% static 'music/images/韩国女.jpg' %}" class="card-img-top" alt="..." height="300px">
+                </a>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'music:韩国女'%}">韩国女歌手</a> </h5>
+
+                </div>
+            </div>
+        <div class="card">
+            <a href="{% url 'music:韩国组合'%}">
+            <img src="{% static 'music/images/韩国乐队.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:韩国组合'%}">韩国乐队/组合</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:其他男'%}">
+            <img src="{% static 'music/images/其他男.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:其他男'%}">其他男歌手</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:其他女'%}">
+            <img src="{% static 'music/images/其他女.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:其他女'%}">其他女歌手</a></h5>
+
+            </div>
+        </div>
+        <div class="card">
+            <a href="{% url 'music:其他组合'%}">
+            <img src="{% static 'music/images/其他乐队.jpg' %}" class="card-img-top" alt="..." height="300px">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'music:其他组合'%}">其他乐队组合</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock 主题 %}

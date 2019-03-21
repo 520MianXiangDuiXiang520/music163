@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html lang="en">
+<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Signin Template · Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+      <link href="signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+        <br/><br/><br/><br/>
+    <form class="form-signin" method="post" action="{% url 'music:管理员页面' %}">
+
+        {% csrf_token %}
+
+        <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
+        <label for="inputEmail" class="sr-only">用户名</label>
+        <center>
+            <input type="text" id="inputEmail" class="form-control" placeholder="用户名" required autofocus style="width: 278px;height: 44px" name="用户名">
+        </center>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <center>
+            <input type="password" id="inputPassword" class="form-control" placeholder="密码" required style="width: 278px;height: 44px" name="密码">
+        </center>
+        <br>
+        {{错误}}
+        <br/>
+        <center>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 278px;height: 44px">登录</button>
+        </center>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</html>

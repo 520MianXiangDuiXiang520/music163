@@ -1,0 +1,93 @@
+{% load static %}
+
+<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>{% block 标题 %}未命名网页{% endblock 标题 %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-top.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% block css %}{% endblock css %}">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="{% block 主页高亮 %}nav-link disabled{% endblock 主页高亮 %}" href="{% url 'music:主页'%}">载逸云</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {#
+            <li class="nav-item active">#}
+                {# <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>#}
+                {#
+            </li>
+            #}
+            {#
+            <li class="nav-item">#}
+                {# <a class="nav-link" href="#">Link</a>#}
+                {#
+            </li>
+            #}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    批量下载
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'music:华语男'%}">{% block 华语歌手 %}华语男歌手{% endblock 华语歌手 %}</a>
+                    <a class="dropdown-item" href="{% url 'music:欧美男'%}">{% block 欧美歌手 %}欧美男歌手{% endblock 欧美歌手 %}</a>
+                    <a class="dropdown-item" href="{% url 'music:日本男'%}">{% block 日本歌手 %}日本男歌手{% endblock 日本歌手 %}</a>
+                    <a class="dropdown-item" href="{% url 'music:韩国男'%}">{% block 韩国歌手 %}韩国男歌手{% endblock 韩国歌手 %}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'music:其他男'%}">{% block 其他歌手 %}其他男歌手{% endblock 其他歌手 %}</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="{% block 关于高亮 %}nav-link disabled{% endblock 关于高亮 %}" href="{% url 'music:关于'%}" tabindex="-1"
+                   aria-disabled="true">关于我</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="{% block get %}get{% endblock get %}" name="updata"
+              action="{% block 按钮url %}{% url 'music:管理员登录'%}{% endblock 按钮url %}">
+            {% csrf_token %}
+            {% block 隐藏域 %}{% endblock 隐藏域 %}
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% block 按钮 %}管理员登录{% endblock 按钮 %}
+            </button>
+        </form>
+    </div>
+</nav>
+<main>
+    {% block 主题 %}
+    {% endblock 主题 %}
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>

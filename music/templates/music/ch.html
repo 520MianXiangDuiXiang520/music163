@@ -1,0 +1,27 @@
+{% extends "music/base.html"%}
+{% load static %}
+{% block 标题 %}华语歌手{% endblock %}
+{% block 主页高亮 %}navbar-brand{% endblock %}
+{% block css %}{% static 'music/css/ch.css' %}{% endblock %}
+{% block 主题 %}
+
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">序号</th>
+          <th scope="col">歌手姓名</th>
+          <th scope="col">歌手ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for info in a %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+              <td><a href="{% url 'music:歌曲' info.歌手ID %}">{{ info.歌手姓名 }}</a></td>
+            <td><a href="{% url 'music:歌曲' info.歌手ID %}">{{ info.歌手ID }}</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock 主题 %}
