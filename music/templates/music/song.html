@@ -14,7 +14,7 @@
 
     {% if 警告 %}
     <div class="alert alert-danger" role="alert">
-        您未填写下载路径
+        {{警告}}
     </div>
     {% elif 成功提示 %}
     <div class="alert alert-success" role="alert">
@@ -27,7 +27,7 @@
         <tr>
           <th scope="col">序号</th>
           <th scope="col">歌名</th>
-          <th scope="col">歌曲ID</th>
+          <th scope="col">下载</th>
         </tr>
       </thead>
       <tbody>
@@ -35,7 +35,7 @@
           <tr>
             <th scope="row">{{forloop.counter}}</th>
               <td>{{ s.1}}</td>
-            <td>{{ s.0 }}</td>
+              <td><a href="http://music.163.com/song/media/outer/url?id={{ s.0 }}" >点击链接Ctrl+S下载</a></td>
           </tr>
         {% endfor %}
       </tbody>

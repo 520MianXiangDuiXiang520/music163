@@ -5,7 +5,8 @@ from .models import 华语男歌手,欧美男歌手,日本男歌手,韩国男歌
 from urllib.request import urlretrieve
 import re
 from lxml.html import fromstring,tostring
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate
+from django.http import FileResponse
 
 artists = []
 id = []
@@ -133,56 +134,100 @@ def auth(request):
 def superuser_page(request):
     return render(request, 'music/superuser.html')
 
-
-def update(request):
-    韩国男歌手.objects.all().delete()
-    日本男歌手.objects.all().delete()
-    华语女歌手.objects.all().delete()
-    欧美女歌手.objects.all().delete()
-    日本女歌手.objects.all().delete()
-    韩国女歌手.objects.all().delete()
-    其他女歌手.objects.all().delete()
-    其他男歌手.objects.all().delete()
+def up1(request):
     华语男歌手.objects.all().delete()
-    欧美男歌手.objects.all().delete()
-    其他歌手组合.objects.all().delete()
-    韩国组合.objects.all().delete()
-    日本组合.objects.all().delete()
-    欧美组合.objects.all().delete()
+    flag = '华语男歌手'
+    pachong(flag, 1001)
+    return render(request, "music/superuser.html")
+
+def up2(request):
+    华语女歌手.objects.all().delete()
+    flag = '华语女歌手'
+    pachong(flag, 1002)
+    return render(request, "music/superuser.html")
+
+def up3(request):
     华语组合.objects.all().delete()
-    flag='华语男歌手'
-    pachong(flag,1001)
-    flag='华语女歌手'
-    pachong(flag,1002)
     flag = '华语组合'
     pachong(flag, 1003)
-    flag='欧美男歌手'
+    return render(request, "music/superuser.html")
+
+def up4(request):
+    欧美男歌手.objects.all().delete()
+    flag = '欧美男歌手'
     pachong(flag, 2001)
+    return render(request, "music/superuser.html")
+
+def up5(request):
+    欧美女歌手.objects.all().delete()
     flag = '欧美女歌手'
     pachong(flag, 2002)
+    return render(request, "music/superuser.html")
+
+def up6(request):
+    欧美组合.objects.all().delete()
     flag = '欧美组合'
     pachong(flag, 2003)
-    flag='日本男歌手'
+    return render(request, "music/superuser.html")
+
+def up7(request):
+    日本男歌手.objects.all().delete()
+    flag = '日本男歌手'
     pachong(flag, 6001)
+    return render(request, "music/superuser.html")
+
+def up8(request):
+    日本女歌手.objects.all().delete()
     flag = '日本女歌手'
     pachong(flag, 6002)
+    return render(request, "music/superuser.html")
+
+def up9(request):
+    日本组合.objects.all().delete()
     flag = '日本组合'
     pachong(flag, 6003)
-    flag='韩国男歌手'
+    return render(request, "music/superuser.html")
+
+def up10(request):
+    韩国男歌手.objects.all().delete()
+    flag = '韩国男歌手'
     pachong(flag, 7001)
+    return render(request, "music/superuser.html")
+
+def up11(request):
+    韩国女歌手.objects.all().delete()
     flag = '韩国女歌手'
     pachong(flag, 7002)
+    return render(request, "music/superuser.html")
+
+def up12(request):
+    韩国组合.objects.all().delete()
     flag = '韩国组合'
     pachong(flag, 7003)
+    return render(request, "music/superuser.html")
+
+def up13(request):
+    其他男歌手.objects.all().delete()
     flag = '其他男歌手'
     pachong(flag, 4001)
+    return render(request, "music/superuser.html")
+
+def up14(request):
+    其他女歌手.objects.all().delete()
     flag = '其他女歌手'
     pachong(flag, 4001)
+    return render(request, "music/superuser.html")
+
+def up15(request):
+    其他歌手组合.objects.all().delete()
     flag = '其他组合'
     pachong(flag, 4001)
+    return render(request, "music/superuser.html")
 
+
+def update(request):
     connect={'ID':id,'NAME':artists}
-    return render(request, "music/auth.html", connect)
+    return render(request, "music/superuser.html", connect)
 
 def song(url):
     id_list = []
@@ -232,10 +277,12 @@ def song(url):
 
 def down(dit,get_path):
     for id in dit.keys():
+        file=FileResponse(get_path,'rb')
         downloadurl='http://music.163.com/song/media/outer/url?id='+id
         path=get_path+'\%s.mp3'%dit[id]
         try:
-            urlretrieve(downloadurl,path)
+            # urlretrieve(downloadurl,path)
+            pass
         except:
             continue
 
@@ -336,8 +383,8 @@ def alldownl(request):
         if path=='':
             connect={'a':info,'警告':'未输入路径'}
         else:
-            down(dit, path)
-            connect={'a':info,'成功提示':'开始下载'}
+            # down(dit, path)
+            connect={'a':info,'警告':'暂时不能这样搞...'}
         return render(request, "music/song.html", connect)
     else:
         return render(request, "music/song.html")
